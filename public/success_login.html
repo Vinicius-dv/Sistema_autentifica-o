@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de sucesso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/success_login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <h1>SecureAuth</h1>
+    </header>
+    <div class="container">
+        <main>
+            <div class="success">
+                <h1>Cadastro efetuado com sucesso</h1>
+                <p class="nome">Bem-vindo  <span id="nome">`${ nome}`</span></p>
+                <p class="email">Seu e-mail é: <span id="email">`${email}`</span></p>
+                <button id="button_sair">Sair</button>
+            </div>
+        </main>
+    </div>
+
+
+    <script>
+        const button_sair = document.getElementById('button_sair')
+        const urlParams = new URLSearchParams(window.location.search);
+        const nome = urlParams.get('name');
+        const email = urlParams.get('email');
+
+        document.getElementById('nome').textContent = nome;
+        document.getElementById('email').textContent = email;
+
+         button_sair.addEventListener('click',()=>{
+            window.location.href = 'http://127.0.0.1:5500/public/login.html'
+         })
+    </script>
+</body>
+</html>
